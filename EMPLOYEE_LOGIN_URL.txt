@@ -1,0 +1,11 @@
+GST Litigation Office Server
+
+Use this address from computers connected to the same office network:
+
+http://192.168.1.14:8058/CompanyLogin.aspx
+
+Alternative computer-name address:
+
+http://DESKTOP-K84P7C4:8058/CompanyLogin.aspx
+
+If the computer-name address does not open from another computer, use the IP address.

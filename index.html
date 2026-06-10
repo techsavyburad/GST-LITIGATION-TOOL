@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <title>GST Litigation Tool</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <link rel="stylesheet" href="style.css?v=20260610c" />
+    <link rel="stylesheet" href="cbic_ui.css?v=20260507c" />
+</head>
+
+<body>
+    <div class="app-layout" id="app-layout">
+
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <div class="logo-icon"><img src="logo.jpg" alt="Logo" style="width: 100%; height: 100%; object-fit: contain; border-radius: 6px;"></div>
+                    <div class="logo-text">
+                        <span class="logo-name">GST Litigation</span>
+                    </div>
+                </div>
+                <button class="sidebar-collapse-btn" id="sidebar-collapse-btn"><i
+                        class="fas fa-chevron-left"></i></button>
+            </div>
+            <nav class="sidebar-nav" id="sidebar-nav">
+                <div class="nav-group">
+                    <span class="nav-group-label">OVERVIEW</span>
+                    <a class="nav-item active" data-module="dashboard" href="#" title="Dashboard" aria-label="Dashboard"><i class="fas fa-chart-pie"></i><span>Dashboard</span></a>
+                    <a class="nav-item" data-module="reports" href="#" title="Reports" aria-label="Reports"><i class="fas fa-file-lines"></i><span>Reports</span></a>
+                </div>
+                <div class="nav-group">
+                    <span class="nav-group-label">CASES</span>
+                    <a class="nav-item" data-module="cases" href="#" title="Case Register" aria-label="Case Register"><i class="fas fa-folder-open"></i><span>Case Register</span><em class="nav-count" id="nav-count-cases">0</em></a>
+                    <a class="nav-item" data-module="pipeline" href="#" title="Case Pipeline" aria-label="Case Pipeline"><i class="fas fa-columns"></i><span>Case Pipeline</span></a>
+                    <a class="nav-item" data-module="clients" href="#" title="Client Master" aria-label="Client Master"><i class="fas fa-users"></i><span>Client Master</span></a>
+                    <a class="nav-item" data-module="employees" href="#" title="Employee Master" aria-label="Employee Master"><i class="fas fa-id-badge"></i><span>Employee Master</span></a>
+                </div>
+                <div class="nav-group">
+                    <span class="nav-group-label">HEARINGS &amp; ALERTS</span>
+                    <a class="nav-item" data-module="hearings" href="#" title="Hearing Tracker" aria-label="Hearing Tracker"><i class="fas fa-calendar-check"></i><span>Hearing Tracker</span></a>
+                    <a class="nav-item" data-module="notifications" href="#" title="Notifications" aria-label="Notifications"><i class="fas fa-bell"></i><span>Notifications</span><em class="nav-count" id="nav-count-notif" style="display:none">0</em></a>
+                </div>
+            </nav>
+            <div class="sidebar-footer">
+                <span class="status-indicator online"></span>
+                <span>GST Portal Ready &nbsp;â€¢&nbsp; v2.0</span>
+            </div>
+        </aside>
+
+        <div class="main-wrapper">
+            <header class="top-bar">
+                <div class="top-bar-left">
+                    <button class="mobile-menu-btn" id="mobile-menu-btn"><i class="fas fa-bars"></i></button>
+                    <nav class="breadcrumb" id="breadcrumb">
+                        <i class="fas fa-home"></i>
+                        <i class="fas fa-chevron-right bc-sep"></i>
+                        <span id="breadcrumb-current">Dashboard</span>
+                    </nav>
+                </div>
+                <div class="top-bar-center">
+                    <div class="global-search-wrap">
+                        <i class="fas fa-search"></i>
+                        <input type="text" id="global-search" class="global-search"
+                            placeholder="Search cases, clientsâ€¦ (Ctrl+K)" autocomplete="off" />
+                        <div class="search-dropdown" id="search-dropdown"></div>
+                    </div>
+                </div>
+                <div class="top-bar-right">
+                    <button class="sync-chip" id="sync-chip" title="Data sync status">
+                        <span class="sync-chip-dot" id="sync-chip-dot"></span>
+                        <span class="sync-chip-text" id="sync-chip-text">Checking backend</span>
+                    </button>
+                    <button class="top-btn" id="deadline-alert-btn" title="Upcoming Deadlines">
+                        <i class="fas fa-bell"></i><span class="alert-badge" id="alert-badge"
+                            style="display:none">0</span>
+                    </button>
+                    <button class="top-btn" id="refresh-btn" title="Refresh"><i class="fas fa-sync-alt"></i></button>
+                    <div class="user-chip" id="user-chip" title="Click to sign out">
+                        <span class="user-avatar-sm" id="user-initials">GP</span>
+                        <span class="user-name" id="user-name-display">Practitioner</span>
+                    </div>
+                </div>
+            </header>
+
+            <main class="page-content" id="app-content">
+                <div class="init-loading">
+                    <div class="spinner"></div>
+                    <p>Loading GST Litigation Proâ€¦</p>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal-backdrop" id="modal-backdrop">
+        <div class="modal-box" id="modal-box">
+            <div class="modal-header">
+                <h3 id="modal-title">Dialog</h3>
+                <button id="modal-close-btn" class="modal-close-btn"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="modal-body" id="modal-body"></div>
+            <div class="modal-footer" id="modal-footer"></div>
+        </div>
+    </div>
+
+    <!-- Toasts -->
+    <div class="toast-container" id="toast-container"></div>
+
+    <!-- Data scripts: synchronous (app boot depends on GST_DATA) -->
+    <script src="gst-data.js?v=20260507c" charset="utf-8"></script>
+
+    <!-- CDN libraries loaded async so they never block app.js -->
+    <script>
+      (function() {
+        function loadScript(src, onload) {
+          var s = document.createElement('script'); s.src = src;
+          if (onload) s.onload = onload;
+          document.head.appendChild(s);
+        }
+        // SortableJS â€” used in Sequence tab + Pipeline Kanban
+        loadScript('https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js');
+      })();
+    </script>
+    <!-- App scripts (synchronous at end of body = DOM already built) -->
+    <script src="app.js?v=20260610d" charset="utf-8"></script>
+    <script src="case-files.js?v=20260610d" charset="utf-8"></script>
+    <script src="features.js?v=20260521a" charset="utf-8"></script>
+</body>
+
+</html>
+
+
+
+
+

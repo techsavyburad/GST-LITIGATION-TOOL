@@ -1,0 +1,20 @@
+{
+  "name": "gst-litigation-case-master",
+  "version": "2.0.0",
+  "description": "GST Litigation Pro — Case Master with Excel Backend",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js",
+    "office": "node server.js",
+    "check": "node --check server.js && node --check app.js && node --check features.js && node --check case-files.js && node --check scripts/export-excel-for-supabase.js",
+    "export:supabase": "node scripts/export-excel-for-supabase.js"
+  },
+  "dependencies": {
+    "bcryptjs": "^3.0.3",
+    "cors": "^2.8.5",
+    "express": "^4.21.0",
+    "jsonwebtoken": "^9.0.3",
+    "xlsx": "^0.18.5"
+  }
+}

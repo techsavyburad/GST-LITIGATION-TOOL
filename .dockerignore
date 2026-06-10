@@ -1,0 +1,10 @@
+node_modules
+npm-debug.log
+*.log
+.git
+.vscode
+backups
+cache-test-server.*
+office-server.*
+case_master_data.backup.xlsx
+case_master_data.login_reset_backup_*.xlsx

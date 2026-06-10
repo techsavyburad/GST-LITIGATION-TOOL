@@ -1,0 +1,276 @@
+/* CBIC Knowledge Base Redesign */
+
+.cbic-container {
+  font-family: var(--font);
+  color: var(--text);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--premium-shadow);
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  background: var(--card);
+  border: 1px solid var(--border);
+  animation: popIn 0.5s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+/* Tabs Top Navigation */
+.cbic-tabs-nav {
+  display: flex;
+  border-bottom: 1px solid var(--border);
+  background: transparent;
+  flex-wrap: wrap;
+}
+
+.cbic-tab {
+  padding: 12px 20px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-soft);
+  cursor: pointer;
+  border-bottom: 3px solid transparent;
+  transition: all 0.2s ease;
+}
+
+.cbic-tab:hover {
+  background: var(--card-hover);
+}
+
+.cbic-tab.active {
+  color: var(--blue);
+  border-bottom: 2px solid var(--blue);
+}
+
+/* Search Bar Area */
+.cbic-search-area {
+  background: var(--bg2); /* Light beige/gold background */
+  padding: 15px 20px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.cbic-select-group {
+  display: flex;
+  align-items: stretch;
+}
+
+.cbic-select-label {
+  background: var(--blue);
+  color: white;
+  padding: 8px 15px;
+  font-size: 13px;
+  font-weight: 600;
+  border-radius: 4px 0 0 4px;
+  display: flex;
+  align-items: center;
+}
+
+.cbic-select { background: var(--card); color: var(--text); padding: 8px 10px;
+  border: 1px solid var(--border);
+  border-radius: 0 4px 4px 0;
+  font-size: 13px;
+  min-width: 200px;
+  color: var(--text);
+  outline: none;
+  background: transparent;
+}
+.cbic-select.short {
+  min-width: 130px;
+}
+
+.cbic-input { background: var(--card); color: var(--text); padding: 8px 10px;
+  border: 1px solid var(--border);
+  font-size: 13px;
+  color: var(--text);
+  min-width: 120px;
+  outline: none;
+}
+
+.cbic-search-btn {
+  background: var(--blue);
+  color: white;
+  border: none;
+  padding: 0 15px;
+  border-radius: 0 4px 4px 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.cbic-search-btn i {
+  font-size: 14px;
+}
+
+.cbic-global-search-link {
+  font-size: 12px;
+  color: var(--text-soft);
+  font-weight: 600;
+  margin-left: auto;
+  cursor: pointer;
+}
+
+/* View By Row */
+.cbic-view-by-row {
+  display: flex;
+  align-items: center;
+  padding: 15px 20px;
+  background: transparent;
+  border-bottom: 1px solid var(--border);
+}
+
+.cbic-view-by-text {
+  font-size: 13px;
+  font-weight: bold;
+  color: var(--text-soft);
+  margin-right: 10px;
+}
+
+.cbic-radio-group {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.cbic-radio-label {
+  font-size: 13px;
+  color: var(--text-soft);
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+}
+.cbic-radio-label.active {
+  color: var(--blue);
+}
+.cbic-radio-label input[type="radio"] {
+  accent-color: var(--blue);
+}
+
+.cbic-chap-title {
+  margin-left: 20px;
+  font-size: 18px;
+  font-weight: bold;
+  color: var(--text-soft);
+}
+
+/* Two-column layout */
+.cbic-layout {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  background: transparent;
+  min-height: calc(100vh - 300px);
+}
+
+/* Sidebar */
+.cbic-sidebar {
+  border-right: 1px solid #ddd;
+  background: var(--bg);
+  overflow-y: auto;
+  height: calc(100vh - 300px);
+}
+
+.cbic-sidebar-item {
+  padding: 15px;
+  border-bottom: 1px solid var(--border);
+  font-size: 13px;
+  cursor: pointer;
+  color: var(--text-soft);
+  transition: background 0.2s ease;
+}
+.cbic-sidebar-item:hover {
+  background: var(--card-hover);
+}
+.cbic-sidebar-item.active {
+  background: var(--blue-dim);
+  border-left: 3px solid var(--blue);
+  color: var(--blue);
+  font-weight: bold;
+}
+.cbic-sidebar-item .sec-num {
+  font-weight: bold;
+  margin-bottom: 6px;
+  display: block;
+}
+.cbic-sidebar-item .sec-title {
+  line-height: 1.4;
+  opacity: 0.9;
+}
+
+/* Right Content Area */
+.cbic-content-area {
+  padding: 24px 30px;
+  overflow-y: auto;
+  height: calc(100vh - 300px);
+  background: var(--card);
+}
+
+.cbic-section-card {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  margin-bottom: 24px;
+  background: var(--bg2);
+  box-shadow: var(--shadow-sm);
+}
+
+.cbic-section-header {
+  background: var(--blue-dim);
+  padding: 12px 18px;
+  color: var(--blue);
+  font-size: 15px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.cbic-section-header i {
+  color: var(--blue);
+}
+
+.cbic-section-body {
+  padding: 25px 25px;
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--text);
+}
+.cbic-section-body p {
+  margin-bottom: 15px;
+}
+.cbic-section-body .footnote {
+  color: var(--text-soft);
+  font-size: 12px;
+  margin-top: 25px;
+  border-top: 1px solid var(--border);
+  padding-top: 15px;
+  line-height: 1.5;
+}
+
+/* Scrollbar for CBIC areas */
+.cbic-sidebar::-webkit-scrollbar,
+.cbic-content-area::-webkit-scrollbar {
+  width: 6px;
+}
+.cbic-sidebar::-webkit-scrollbar-track,
+.cbic-content-area::-webkit-scrollbar-track {
+  background: var(--bg);
+}
+.cbic-sidebar::-webkit-scrollbar-thumb,
+.cbic-content-area::-webkit-scrollbar-thumb {
+  background: var(--border-light);
+  border-radius: 3px;
+}
+
+.cbic-empty-state {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+  color: var(--text-muted);
+  font-size: 15px;
+  background: var(--bg);
+  border: 1px dashed var(--border);
+  border-radius: 6px;
+  margin: 20px;
+}
